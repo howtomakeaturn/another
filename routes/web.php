@@ -26,3 +26,35 @@ Route::get('/issue/{id}', function ($id) {
 
     return view('issue', compact('issue'));
 });
+
+Route::post('/comment', function(){
+    $comment = new App\Comment();
+
+    $comment->content = Request::get('content');
+
+    $comment->issue_id = Request::get('issue_id');
+
+    $comment->save();
+
+    return redirect()->back();
+});
+
+Route::post('/close-issue', function(){
+    $issue = App\Issue::find(Request::get('issue_id'));
+
+    $issue->status = App\Issue::CLOSED_STATUS;
+
+    $issue->save();
+
+    return redirect()->back();
+});
+
+Route::post('/open-issue', function(){
+    $issue = App\Issue::find(Request::get('issue_id'));
+
+    $issue->status = App\Issue::OPEN_STATUS;
+
+    $issue->save();
+
+    return redirect()->back();
+});
