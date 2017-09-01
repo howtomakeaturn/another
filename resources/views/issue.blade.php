@@ -15,7 +15,7 @@
         <div class="row">
             <div class="col-md-12">
                 <br>
-                <a href='#'>« Back To Dashboard: Just Another Demo Project</a>
+                <a href='#'>« Back To Dashboard: {{$issue->project->name}}</a>
             </div>
         </div>
         <div class="row">
@@ -23,7 +23,7 @@
                 <div class="row">
                     <div class="col-md-10">
                         <h2 class="main-title">
-                            ■ 關於「自訂過濾器」的未來變動 ■
+                            {{$issue->title}}
                         </h2>
                     </div>
                     <div class="col-md-2">
@@ -37,6 +37,14 @@
         </div>
         <div class="row">
             <div class="col-md-8">
+                @foreach($issue->comments as $comment)
+                <div class="issue-box" style="margin-bottom: 20px;">
+                    <div>
+                        {!!nl2br(htmlspecialchars($comment->content))!!}
+                    </div>
+                </div>
+                @endforeach
+
                 <div class="issue-box" style="margin-bottom: 20px;">
                     <div>
                                                     ■ 關於「自訂過濾器」的未來變動：8月6號（日）以後註冊的用戶，需要成為贊助會員才能使用「自訂過濾器」■<br>

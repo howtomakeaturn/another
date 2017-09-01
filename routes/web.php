@@ -15,10 +15,14 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/project', function () {
-    return view('project');
+Route::get('/project/{id}', function ($id) {
+    $project = App\Project::find($id);
+
+    return view('project', compact('project'));
 });
 
-Route::get('/issue', function () {
-    return view('issue');
+Route::get('/issue/{id}', function ($id) {
+    $issue = App\Issue::find($id);
+
+    return view('issue', compact('issue'));
 });

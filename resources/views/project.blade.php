@@ -19,12 +19,30 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <h2 class="main-title">Just Another Demo Project</h2>
+                <h2 class="main-title">{{$project->name}}</h2>
             </div>
         </div>
         <div class="row">
             <div class="col-md-8">
                 <div class="issues-box">
+                    @foreach($project->issues as $issue)
+                    <div class="issue-box">
+                        <div class="row">
+                            <div class="col-md-9">
+                                <div class="_margin-bottom-5">{{$issue->title}}</div>
+                                <div class="-subinfo">於 5 天前</div>
+                            </div>
+                            <div class="col-md-1">
+                                <i class="fa fa-comment-o" aria-hidden="true"></i> 5
+                            </div>
+                            <div class="col-md-2">
+                                <span class="label label-success _size-20">Open</span>
+                            </div>
+                        </div>
+                    </div>
+                    @endforeach
+
+
                     @for($i=0; $i<5; $i++)
                     <div class="issue-box">
                         <div class="row">
