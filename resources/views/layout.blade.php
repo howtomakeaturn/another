@@ -26,6 +26,30 @@
 
         @yield('head')
 
+        <style>
+            body {
+                background-color: #EEEEEE;
+                font-size: 16px;
+            }
+            .main-title {
+                margin-bottom: 20px;
+                padding-left: 15px;
+            }
+            .issue-box {
+                background-color: white;
+                padding: 15px;
+                border-bottom: 1px solid #E0E0E0;
+            }
+            ._size-20 {
+                font-size: 20px;
+            }
+            .-subinfo {
+                color: #9e9e9e;
+                font-size: 14px;
+            }
+
+        </style>
+
     </head>
     <body>
         @yield('content')

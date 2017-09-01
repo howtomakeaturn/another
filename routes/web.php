@@ -18,3 +18,7 @@ Route::get('/', function () {
 Route::get('/project', function () {
     return view('project');
 });
+
+Route::get('/issue', function () {
+    return view('issue');
+});
