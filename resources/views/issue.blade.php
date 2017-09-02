@@ -15,7 +15,7 @@
         <div class="row">
             <div class="col-md-12">
                 <br>
-                <a href='#'>« Back To Dashboard: {{$issue->project->name}}</a>
+                <a href='/project/{{$issue->project->id}}'>« Back To Dashboard: {{$issue->project->name}}</a>
             </div>
         </div>
         <div class="row">

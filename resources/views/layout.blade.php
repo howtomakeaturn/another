@@ -31,6 +31,12 @@
                 background-color: #EEEEEE;
                 font-size: 16px;
             }
+            a {
+                color: #333;
+            }
+            a:hover {
+                color: #333;
+            }
             .main-title {
                 margin-bottom: 20px;
                 padding-left: 15px;

@@ -21,6 +21,34 @@ Route::get('/project/{id}', function ($id) {
     return view('project', compact('project'));
 });
 
+Route::get('/project/{id}/new-issue', function ($id) {
+    $project = App\Project::find($id);
+
+    return view('new-issue', compact('project'));
+});
+
+Route::post('/new-issue', function(){
+    $issue = new App\Issue();
+
+    $issue->title = Request::get('title');
+
+    $issue->status = 0;
+
+    $issue->project_id = Request::get('project_id');
+
+    $issue->save();
+
+    $comment = new App\Comment();
+
+    $comment->issue_id = $issue->id;
+
+    $comment->content = Request::get('content');
+
+    $comment->save();
+
+    return redirect('/issue/' . $issue->id);
+});
+
 Route::get('/issue/{id}', function ($id) {
     $issue = App\Issue::find($id);
 
