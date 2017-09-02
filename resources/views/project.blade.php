@@ -39,7 +39,9 @@
                                 <div class="-subinfo">{{$issue->created_at->diffForHumans()}}</div>
                             </div>
                             <div class="col-md-1">
-                                <i class="fa fa-comment-o" aria-hidden="true"></i> 5
+                                @if($issue->comments->count() - 1 > 0)
+                                <i class="fa fa-comment-o" aria-hidden="true"></i> {{$issue->comments->count() - 1}}
+                                @endif
                             </div>
                             <div class="col-md-2">
                                 @if($issue->status == 0)

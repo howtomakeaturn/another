@@ -82,14 +82,14 @@
     <body>
         <div class="flex-center position-ref full-height">
             <div class="content">
-                <div class="title m-b-md">
-                    Another <br>
-                    Issue Tracking System
-                </div>
 
-                <div class="links">
-                    <a href="/new-project" class="btn btn-primary btn-lg">Create New Project</a>
-                </div>
+                    <form method="post" action="/new-project">
+                        <input type="text" class="form-control" placeholder="Project Name" name='name'>
+                        <br>
+                        {{csrf_field()}}
+                        <input type='submit' class="btn btn-primary btn-block" value="Create">
+                    </form>
+
             </div>
         </div>
     </body>

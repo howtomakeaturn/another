@@ -15,6 +15,20 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/new-project', function () {
+    return view('new-project');
+});
+
+Route::post('/new-project', function(){
+    $project = new App\Project();
+
+    $project->name = Request::get('name');
+
+    $project->save();
+
+    return redirect('/project/' . $project->id);
+});
+
 Route::get('/project/{id}', function ($id) {
     $project = App\Project::find($id);
 
